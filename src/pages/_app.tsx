@@ -1,8 +1,15 @@
 //reaproveitar estrutura prévia de todas as páginas ex: sidebar
 import "../styles/global.css";
+import { ChallengesProvider } from "../contexts/ChallengesContext";
+import { useState } from "react";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <ChallengesProvider>
+      {/* todos os elementos dentro do provider, tem acesso aos dados daquele contexto */}
+      <Component {...pageProps} />
+    </ChallengesProvider>
+  );
 }
 
 export default MyApp;
